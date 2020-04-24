@@ -1,20 +1,20 @@
-<p><strong>Associate with CRYT-id</strong>
+<p><strong>Register Account with CRYT-id</strong>
   </p>
 <p><em>*Click Associate account to Activate CRYT-id Login System to your account.</em></p>
 <form name="crytform" class="card" action="YOURPAGETOHANDLEPOST" method="POST">
         <div class="form-group">
 		<p class="text-center"><img src="cryt_img/cryt-id-logo.png" alt="CRYT-id" /></p>
+		 <label class="form-label">E-mail: </label>
+            <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" placeholder="Enter email" onKeyup="checkform()" required>
             <input type="hidden" id="secretPhrase" name="secretPhrase" class="form-control" required readonly>
             <input type="hidden" name="website" class="form-control" value="YOURWEBSITEURL" required readonly>
             <input type="hidden" name="user_id" class="form-control" value="USERIDHERE" required readonly>
         <div class="form-footer">
-		<input id="submitcryt" class="btn btn-primary btn-block" type="submit" value="Associate Account" />
+		<input id="submitcryt" class="btn btn-primary btn-block" type="submit" disabled="disabled" value="Register" />
 		</div>
 </form>
 
 
-<br />
-*passphrase is hidden if you need to manage users wallet on your website, do it visible for allow users to have passphrase available to send and receive transactions.
 
 
 
@@ -24,7 +24,9 @@
   <script src="js/jquery-3.4.1.min.js"></script>
 </p>
 <p>**For Developers: This random generate 99 charset passphrase for this account and create a token from it.<br>
-  Remember to save passphrase to CRYT-id Table associated with this account if need to give CRYT Wallet Function.
+  Remember to save passphrase to CRYT-id Table associated with this account if need to give CRYT Wallet Function.<br>
+*Email is basic required on most website content, if need more input, like userid, or phone add it to form and handle on destination POST page.<br>
+**passphrase is hidden if you need to manage userswallet on your website, do it visible for allow users to have passphrase available to send and receive transactions.
   
     <script type="text/javascript" language="javascript">
 $(document).ready( function() {
@@ -40,5 +42,20 @@ function makeid(length) {
    }
    return result;
 }
+  </script>
+  <script type="text/javascript" language="javascript">
+    function checkform()
+    {
+        var f = document.forms["crytform"].elements;
+        var cansubmit = true;
+
+        for (var i = 0; i < f.length; i++) {
+            if (f[i].value.length == 0) cansubmit = false;
+        }
+
+        if (cansubmit) {
+            document.getElementById('submitcryt').disabled = false;
+        }
+    }
   </script>
 </p>
