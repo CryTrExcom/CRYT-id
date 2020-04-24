@@ -1,10 +1,31 @@
-<strong>Login to Account</strong>
-<form class="card" action="YOURPAGETOHANDLEPOST" method="POST">
+<strong>Associate CRYT-id to Account</strong>
+<form name="crytform" class="card" action="YOURPAGETOHANDLEPOST" method="POST">
         <div class="form-group">
 		<p class="text-center"><img src="cryt_img/cryt-id-logo.png" alt="CRYT-id" /></p>
             <label class="form-label"> Token: </label>
             <input type="password" name="token" class="form-control" required>
             <input type="hidden" name="website" class="form-control" value="YOURWEBSITEURL" required readonly>
         </div>
+        <div class="form-footer">
+		<input id="submitcryt" class="btn btn-primary btn-block" type="submit" disabled="disabled" value="Sign in" />
+		</div>
 </form>
 
+
+
+
+<script type="text/javascript" language="javascript">
+    function checkform()
+    {
+        var f = document.forms["crytform"].elements;
+        var cansubmit = true;
+
+        for (var i = 0; i < f.length; i++) {
+            if (f[i].value.length == 0) cansubmit = false;
+        }
+
+        if (cansubmit) {
+            document.getElementById('submitcryt').disabled = false;
+        }
+    }
+</script>
