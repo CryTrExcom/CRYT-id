@@ -1,0 +1,57 @@
+<p><strong>Associate with CRYT-id</strong>
+  </p>
+<p><em>*Click Associate account to Activate CRYT-id Login System to your account.</em></p>
+<form name="crytform" class="card" action="YOURPAGETOHANDLEPOST" method="POST">
+        <div class="form-group">
+		<p class="text-center"><img src="cryt_img/cryt-id-logo.png" alt="CRYT-id" /></p>
+            <input type="hidden" id="secretPhrase" name="secretPhrase" class="form-control" required readonly>
+            <input type="hidden" name="website" class="form-control" value="YOURWEBSITEURL" required readonly>
+            <input type="hidden" name="user_id" class="form-control" value="USERIDHERE" required readonly>
+        <div class="form-footer">
+		<input id="submitcryt" class="btn btn-primary btn-block" type="submit" disabled="disabled" value="Associate Account" />
+		</div>
+</form>
+
+
+
+
+
+
+
+<p>
+  <script src="js/jquery-3.4.1.min.js"></script>
+</p>
+<p>**For Developers: This random generate 99 charset passphrase for this account and create a token from it.<br>
+  Remember to save passphrase to CRYT-id Table associated with this account if need to give CRYT Wallet Function.
+  
+    <script type="text/javascript" language="javascript">
+$(document).ready( function() {
+document.getElementById("secretPhrase").value = makeid(99);	
+        });
+
+function makeid(length) {
+   var result           = '';
+   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+   var charactersLength = characters.length;
+   for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+   return result;
+}
+  </script>
+  <script type="text/javascript" language="javascript">
+    function checkform()
+    {
+        var f = document.forms["crytform"].elements;
+        var cansubmit = true;
+
+        for (var i = 0; i < f.length; i++) {
+            if (f[i].value.length == 0) cansubmit = false;
+        }
+
+        if (cansubmit) {
+            document.getElementById('submitcryt').disabled = false;
+        }
+    }
+  </script>
+</p>
